@@ -1,0 +1,19 @@
+{
+  "name": "ssaatt_2425_express5",
+  "version": "1.0.0",
+  "description": "Ejemplos de Node.js con Express 5",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Node.js",
+    "Express"
+  ],
+  "author": "Juan Carlos Cuevas Martínez",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.0.1"
+  }
+}

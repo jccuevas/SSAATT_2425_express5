@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <title>Mi página web</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+
+  <body>
+    <h1>Bienvenido a mi página web</h1>
+
+    <button onclick="sendPost()">Petición CORS</button>
+
+    <button onclick="sendShutdown()">Apagar servidor</button>
+    <script>
+      function sendPost() {
+        const c = new XMLHttpRequest();
+        c.open("POST", "http://192.168.1.154:8083/login");
+        c.onreadystatechange = function () {
+          if (c.readyState == 4) {
+            if (c.status == 201) {
+              alert("Todo Ok");
+            } else {
+              alert("Error " + c.status + " " + c.statusText);
+            }
+          }
+        };
+
+        c.setRequestHeader("Content-Type", "application/json");
+        c.send(JSON.stringify({ user: "usuario", password: "12345" }));
+
+        //c.send();
+      }
+
+      function sendShutdown() {
+        const c = new XMLHttpRequest();
+        c.open("POST", "http://192.168.1.154:8083/shutdown");
+        c.onreadystatechange = function () {
+          if (c.readyState == 4) {
+            if (c.status == 201) {
+              alert("Todo Ok");
+            } else {
+              alert("Error " + c.status + " " + c.statusText);
+            }
+          }
+        };
+
+        c.setRequestHeader("Content-Type", "application/json");
+        c.send(JSON.stringify({ shutdown: 2000 }));
+
+        //c.send();
+      }
+    </script>
+  </body>
+</html>
