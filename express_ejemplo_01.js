@@ -25,7 +25,13 @@ app.delete("/user", function (req, res) {
   res.send("Got a DELETE request at /user");
 });
 
+SERVER_PORT = 3000; // Puerto del servidor por defecto
 // Inicia el servidor en la dirección de loopback y puerto 3000
-app.listen(3000, function () {
-  console.log("Ejemplo de app escuchando en el puerto 3000");
+app.listen(SERVER_PORT, function (error) {
+  if (error) {
+    console.error("Error al iniciar el servidor:", error);
+    return;
+  } else {
+    console.log("Ejemplo de app escuchando en el puerto " + SERVER_PORT);
+  }
 });
